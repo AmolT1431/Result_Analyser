@@ -1,4 +1,4 @@
-from tkinter import *
+ 
 class Center:
     def center_window(window, width, height):
         screen_width = window.winfo_screenwidth()
@@ -6,3 +6,4 @@ class Center:
         x = (screen_width - width) // 2
         y = (screen_height - height) // 4
         window.geometry(f"{width}x{height}+{x}+{y}")
+        

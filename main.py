@@ -1,80 +1,129 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout
-from PyQt5.QtWebEngineWidgets import QWebEngineView
+from tkinter import *
+from Center import *
+from Frames import *
+from Buttons import*
+ 
 
-class HTMLViewExample(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("HTML View Example")
-        self.setGeometry(100, 100, 800, 600)
 
-        layout = QVBoxLayout()
-        self.setLayout(layout)
+App = Tk()
+App.title("Test")
+App.geometry('1050x700')
+# App.maxsize('1050','700')
+App.minsize('850','350')
+App.resizable(width=TRUE,height=True)
+ 
 
-        # Create a web engine view
-        self.web_view = QWebEngineView()
-        layout.addWidget(self.web_view)
+App.update_idletasks()
+ 
+Center.center_window(App,App.winfo_width(),App.winfo_height())
 
-        # Load HTML content with CSS styling
-        html_content = """
-        <!DOCTYPE html>
-<html>
-  <body>
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
+# Create the main frame
+main_frame = Frame(App, bg="black", width=1000, height=700)
+main_frame.pack(fill=BOTH, expand=True)
 
-    <script>
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
+#######################################################################
+control_frame=Frame(main_frame,bg="lightgray",width=0,height=0)
+control_frame.pack(side=RIGHT,fill="both",expand=False)
 
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+Logo_frame=Frame(control_frame,bg="white",width=300,height=200)
+Logo_frame.pack(side=TOP,fill="x",padx=(15,15),pady=10)
 
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '390',
-          width: '640',
-          videoId: 'M7lc1UVf-VE',
-          playerVars: {
-            'playsinline': 1
-          },
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
+########################################################################
 
-      // 4. The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
+########################################################################
+content_frame=Frame(main_frame,bg="black",width=600,height=0)
+content_frame.pack(side=LEFT,fill="both",padx=(0,10),expand=TRUE)
 
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
-        }
-      }
-      function stopVideo() {
-        player.stopVideo();
-      }
-    </script>
-  </body>
-</html>
-        """
-        self.web_view.setHtml(html_content)
+option_frame=Frame(content_frame,bg="lightgray",width=0,height=150)
+option_frame.pack(side=TOP,fill="both",expand=FALSE,pady=(0,10))
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = HTMLViewExample()
-    window.show()
-    sys.exit(app.exec_())
+display_frame=Frame(content_frame,bg="white",width=0,height=750)
+display_frame.pack(side=BOTTOM,fill="both",expand=True)
+
+display_content_frame = Frame(display_frame, bg="blue", width=600, height=550)
+display_content_frame.pack(side=BOTTOM, fill="both", expand=True)
+
+Display_label = Label(display_frame, text="Display", bg="white",font=("Times New Roman", 20,"bold"))
+Display_label.pack(side=TOP, fill=X)
+
+myframe=Display_Frames(display_content_frame)
+ 
+
+# Initially show frame1
+myframe.show_frame(myframe.frame1)
+ 
+###########################################################################
+
+
+for i in range(3):
+    option_frame.columnconfigure(i, weight=2)  # Allow columns to expand equally
+for j in range(2):
+    option_frame.rowconfigure(j, weight=2)  # Allow rows to expand 
+    
+
+    
+button1 = Frame(option_frame, bg="white", width=200, height=75)
+button1.grid(row=0, column=0, padx=5, pady=10)  # Reduced padding
+button1.bind("<Button-1>", lambda event: b1_click(Display_label,myframe))
+label_text = "List Prn"
+label = Label(button1, text=label_text,bg="white",font=("Times New Roman", 20,"bold"))
+label.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+
+
+
+button2 = Frame(option_frame, bg="white", width=200, height=75)
+button2.grid(row=1, column=0, padx=5, pady=15)  # Reduced padding
+button2.bind("<Button-1>", lambda event: b2_click(Display_label,myframe))
+label_text = "Staticstic"
+label = Label(button2, text=label_text,bg="white",font=("Times New Roman", 20,"bold"))
+label.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+
+
+
+
+button3 = Frame(option_frame, bg="white",  width=200, height=75)
+button3.grid(row=0, column=1, padx=5, pady=5)  # Reduced padding
+button3.bind("<Button-1>", lambda event: b3_click(Display_label,myframe))
+label_text = "Find Result"
+label = Label(button3, text=label_text,bg="white",font=("Times New Roman", 20,"bold"))
+label.place(relx=0.5, rely=0.5, anchor=CENTER)
+ 
+
+
+
+
+button4 = Frame(option_frame, bg="white",  width=200, height=75)
+button4.grid(row=1, column=1, padx=5, pady=5)  # Reduced padding
+button4.bind("<Button-1>", lambda event: b4_click(Display_label,myframe))
+label_text = "Pass & Fail"
+label = Label(button4, text=label_text,bg="white",font=("Times New Roman", 20,"bold"))
+label.place(relx=0.5, rely=0.5, anchor=CENTER)
+ 
+
+
+
+
+
+button5 = Frame(option_frame, bg="white",  width=200, height=75)
+button5.grid(row=0, column=2, padx=5, pady=5)  # Reduced padding
+button5.bind("<Button-1>", lambda event: b5_click(Display_label,myframe))
+label_text = "Sort List"
+label = Label(button5, text=label_text,bg="white",font=("Times New Roman", 20,"bold"))
+label.place(relx=0.5, rely=0.5, anchor=CENTER)
+ 
+
+
+
+button6 = Frame(option_frame, bg="white", width=200, height=75)
+button6.grid(row=1, column=2, padx=5, pady=5)  # Reduced padding
+button6.bind("<Button-1>", lambda event: b6_click(Display_label,myframe))
+label_text = "Top 5"
+label = Label(button6, text=label_text,bg="white",font=("Times New Roman", 20,"bold"))
+label.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+
+
+main_frame.mainloop()
+ 
