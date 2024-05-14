@@ -1,6 +1,6 @@
 import os
 
-directory_path = 'F:\C & C++\Python\Txt'
+directory_path = 'F:\C & C++\Result_Analyser\Txt'
 current_line_number=0
 
 files = os.listdir(directory_path)

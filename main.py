@@ -1,13 +1,13 @@
 from tkinter import *
-from Center import *
-from Frames import *
+from App.Center import *
+from App.Frames import *
 from Buttons import*
  
 
 
 App = Tk()
 App.title("Test")
-App.geometry('1050x700')
+App.geometry('1150x750')
 # App.maxsize('1050','700')
 App.minsize('850','350')
 App.resizable(width=TRUE,height=True)
@@ -17,15 +17,18 @@ App.update_idletasks()
  
 Center.center_window(App,App.winfo_width(),App.winfo_height())
 
+ 
+
 # Create the main frame
 main_frame = Frame(App, bg="black", width=1000, height=700)
 main_frame.pack(fill=BOTH, expand=True)
 
+ 
 #######################################################################
 control_frame=Frame(main_frame,bg="lightgray",width=0,height=0)
 control_frame.pack(side=RIGHT,fill="both",expand=False)
 
-Logo_frame=Frame(control_frame,bg="white",width=300,height=200)
+Logo_frame=Frame(control_frame,bg="white",width=250,height=200)
 Logo_frame.pack(side=TOP,fill="x",padx=(15,15),pady=10)
 
 ########################################################################

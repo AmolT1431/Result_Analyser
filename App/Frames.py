@@ -1,20 +1,22 @@
 import tkinter as tk
+from Frames.myframe import *
+from Frames.find_result import *
+from tkinter import ttk
 
 class Display_Frames:
     def __init__(self, display_content_frame):
         self.frame1 = tk.Frame(display_content_frame, bg="red")
-        label1 = tk.Label(self.frame1, text="Frame 1")
-        label1.pack(padx=20, pady=20)
+        List_Prn(self.frame1)
         self.frame1.grid(row=0, column=0, sticky="nsew")
+        
+        
 
-        self.frame2 = tk.Frame(display_content_frame, bg="blue")
-        label2 = tk.Label(self.frame2, text="Frame 2")
-        label2.pack(padx=20, pady=20)
+        self.frame2 = myFrame(display_content_frame)
         self.frame2.grid(row=0, column=0, sticky="nsew")
         
-        self.frame3 = tk.Frame(display_content_frame, bg="yellow")
-        label3 = tk.Label(self.frame3, text="Frame 3")
-        label3.pack(padx=20, pady=20)
+        
+        
+        self.frame3 = Frame_Find_Result(display_content_frame)
         self.frame3.grid(row=0, column=0, sticky="nsew")
         
         
@@ -46,4 +48,16 @@ class Display_Frames:
     def Test(self, event):
         print("clicked")
 
- 
+class List_Prn:
+    def __init__(self,frame):
+        style = ttk.Style()
+        style.theme_use("clam")  # Ensure a consistent appearance across platforms
+        # style.configure("Custom.Treeview", background="yellow")
+        
+        table = ttk.Treeview(frame,columns=('Name','status'),show='headings',style="Custom.Treeview")
+        table.heading('Name',text = 'name')
+        table.heading("status",text = 'status')
+        table.insert(parent='',index=0,values=('Amol',"pass"))
+        
+        table.pack(fill="both",expand=True)
+        
