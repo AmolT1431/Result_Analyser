@@ -1,7 +1,7 @@
 import os
 
 # Directory path
-directory_path = r"F:\C & C++\Python\Txt"
+directory_path = r'F:\C & C++\Result_Analyser\Txt'
 
 files = os.listdir(directory_path)
 
@@ -20,5 +20,5 @@ for file_path in file_paths:
                 
     file.close   
     ex=".txt"
-    file_path_n = 'F:\C & C++\Python\Txt'+'\\'+name_r+ex  
+    file_path_n = 'F:\C & C++\Result_Analyser\Txt'+'\\'+name_r+ex  
     os.rename(file_path,file_path_n)

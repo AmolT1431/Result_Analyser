@@ -262,9 +262,7 @@ def getlist():
                                 count=count+1
             student.Total=sum(mark_list)
             student.Subject_list=subject_list
-           
-        
-             
+              
         Student_list.append(student)
     return Student_list
  

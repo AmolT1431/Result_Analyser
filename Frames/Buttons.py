@@ -1,5 +1,3 @@
- 
-
 def b1_click(Display_label,myframe):
     myframe.show_frame(myframe.frame1)
     Display_label.config(text="List Prn")  

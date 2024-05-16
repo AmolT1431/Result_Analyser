@@ -3,7 +3,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import numpy as np
 
-class myFrame(Frame):
+class Statictisc(Frame):
     def __init__(self,parent):
         super().__init__(parent)
         fig = plt.Figure(figsize=(14, 7))

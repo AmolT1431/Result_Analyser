@@ -1,19 +1,19 @@
 import tkinter as tk
-from Frames.myframe import *
-from Frames.find_result import *
+from Frames.Staticstics import *
+from Frames.Find_Result import *
+from Frames.List_Prn import *
 from tkinter import ttk
 
 class Display_Frames:
     def __init__(self, display_content_frame):
-        self.frame1 = tk.Frame(display_content_frame, bg="red")
+        self.frame1 = tk.Frame(display_content_frame)
         List_Prn(self.frame1)
         self.frame1.grid(row=0, column=0, sticky="nsew")
         
         
 
-        self.frame2 = myFrame(display_content_frame)
+        self.frame2 = Statictisc(display_content_frame)
         self.frame2.grid(row=0, column=0, sticky="nsew")
-        
         
         
         self.frame3 = Frame_Find_Result(display_content_frame)
@@ -48,16 +48,5 @@ class Display_Frames:
     def Test(self, event):
         print("clicked")
 
-class List_Prn:
-    def __init__(self,frame):
-        style = ttk.Style()
-        style.theme_use("clam")  # Ensure a consistent appearance across platforms
-        # style.configure("Custom.Treeview", background="yellow")
-        
-        table = ttk.Treeview(frame,columns=('Name','status'),show='headings',style="Custom.Treeview")
-        table.heading('Name',text = 'name')
-        table.heading("status",text = 'status')
-        table.insert(parent='',index=0,values=('Amol',"pass"))
-        
-        table.pack(fill="both",expand=True)
+ 
         
