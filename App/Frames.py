@@ -2,6 +2,9 @@ import tkinter as tk
 from Frames.Staticstics import *
 from Frames.Find_Result import *
 from Frames.List_Prn import *
+from Frames.Pass_Fail import *
+from Frames.Top5_List import *
+
 from tkinter import ttk
 
 class Display_Frames:
@@ -20,22 +23,18 @@ class Display_Frames:
         self.frame3.grid(row=0, column=0, sticky="nsew")
         
         
-        self.frame4 = tk.Frame(display_content_frame, bg="pink")
-        label4 = tk.Label(self.frame4, text="Frame 4")
-        label4.pack(padx=20, pady=20)
-        self.frame4.grid(row=0, column=0, sticky="nsew")
+        self.frame4 = Pass_Fail(display_content_frame)
+       
         
         
-        self.frame5 = tk.Frame(display_content_frame, bg="black")
-        label5 = tk.Label(self.frame5, text="Frame 5")
+        self.frame5 = tk.Frame(display_content_frame, bg="white")
+        label5 = tk.Label(self.frame5, text="Thank You from Atomic Tos",bg='white',font=("Times New Roman", 20,"bold"))
         label5.pack(padx=20, pady=20)
         self.frame5.grid(row=0, column=0, sticky="nsew")
         
         
-        self.frame6 = tk.Frame(display_content_frame, bg="blue")
-        label6 = tk.Label(self.frame6, text="Frame 6")
-        label6.pack(padx=20, pady=20)
-        self.frame6.grid(row=0, column=0, sticky="nsew")
+        self.frame6 = Top5_List(display_content_frame)
+       
         
 
         display_content_frame.grid_rowconfigure(0, weight=1)

@@ -7,7 +7,7 @@ from Frames.Option_Frame import*
 
 class Option_Frame(tk.Frame):
     def __init__(self,parent):
-        super().__init__(parent,bg="lightgray",width=0,height=100)
+        super().__init__(parent,bg="lightgray",width=400,height=200)
         
         
         for i in range(3):
@@ -18,7 +18,7 @@ class Option_Frame(tk.Frame):
 
     def add_buttons(self,Display_label,myframe):
             
-        button1 = tk.Frame(self, bg="white", width=200, height=75)
+        button1 = tk.Frame(self, bg="white", width=150, height=75)
         button1.grid(row=0, column=0, padx=5, pady=10)  # Reduced padding
         button1.bind("<Button-1>", lambda event: b1_click(Display_label,myframe))
         label_text = "Prn List"
@@ -28,7 +28,7 @@ class Option_Frame(tk.Frame):
 
 
 
-        button2 = tk.Frame(self, bg="white", width=200, height=75)
+        button2 = tk.Frame(self, bg="white", width=150, height=75)
         button2.grid(row=1, column=0, padx=5, pady=15)  # Reduced padding
         button2.bind("<Button-1>", lambda event: b2_click(Display_label,myframe))
         label_text = "Staticstic"
@@ -39,7 +39,7 @@ class Option_Frame(tk.Frame):
 
 
 
-        button3 = tk.Frame(self, bg="white",  width=200, height=75)
+        button3 = tk.Frame(self, bg="white",  width=150, height=75)
         button3.grid(row=0, column=1, padx=5, pady=5)  # Reduced padding
         button3.bind("<Button-1>", lambda event: b3_click(Display_label,myframe))
         label_text = "Find Result"
@@ -50,7 +50,7 @@ class Option_Frame(tk.Frame):
 
 
 
-        button4 = tk.Frame(self, bg="white",  width=200, height=75)
+        button4 = tk.Frame(self, bg="white",  width=150, height=75)
         button4.grid(row=1, column=1, padx=5, pady=5)  # Reduced padding
         button4.bind("<Button-1>", lambda event: b4_click(Display_label,myframe))
         label_text = "Pass & Fail"
@@ -62,7 +62,7 @@ class Option_Frame(tk.Frame):
 
 
 
-        button5 = tk.Frame(self, bg="white",  width=200, height=75)
+        button5 = tk.Frame(self, bg="white",  width=150, height=75)
         button5.grid(row=0, column=2, padx=5, pady=5)  # Reduced padding
         button5.bind("<Button-1>", lambda event: b5_click(Display_label,myframe))
         label_text = "Sort List"
@@ -72,7 +72,7 @@ class Option_Frame(tk.Frame):
 
 
 
-        button6 = tk.Frame(self, bg="white", width=200, height=75)
+        button6 = tk.Frame(self, bg="white", width=150, height=75)
         button6.grid(row=1, column=2, padx=5, pady=5)  # Reduced padding
         button6.bind("<Button-1>", lambda event: b6_click(Display_label,myframe))
         label_text = "Top 5"

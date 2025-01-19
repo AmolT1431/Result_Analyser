@@ -2,6 +2,9 @@ from tkinter import *
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import numpy as np
+from Pass_Fail_List import *
+
+ 
 
 class Statictisc(Frame):
     def __init__(self,parent):
@@ -10,18 +13,22 @@ class Statictisc(Frame):
 
         # Add subplot
         ax = fig.add_subplot(111)
+   
+        getlist()
+        list_of_stats = stat_list()
 
         # Data
-        Fail = [42,40,43,46,38,64,64]
-        Pass = [25,27,24,21,29,3,3]
-        subjects = ['M3', 'DMS', 'DSA', 'CN-I', 'MIC', 'CP', 'SS']
+        Fail = list_of_stats[0][1]    
+        Pass = list_of_stats[0][0]    
+        subjects = list_of_stats[0][2]  
 
         # Plotting the bar chart
         br1 = np.arange(len(Pass))
         br2 = [x + 0.2 for x in br1]
-
-        ax.bar(br1, Pass, color ='r', width = 0.2, edgecolor ='grey', label ='Pass')
-        ax.bar(br2, Fail, color ='g', width = 0.2, edgecolor ='grey', label ='Fail')
+        
+        ax.bar(br2, Fail, color ='g', width = 0.2, edgecolor ='grey', label ='pass')
+        ax.bar(br1, Pass, color ='r', width = 0.2, edgecolor ='grey', label ='Fail')
+        
 
         # Adding data labels
         for i, count in enumerate(Pass):

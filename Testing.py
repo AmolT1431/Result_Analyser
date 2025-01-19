@@ -1,15 +1,13 @@
-from Result import *
+from Pass_Fail_List import *
 
 plist=getlist()
-# for item in plist:
-#     print(item[0] +":"+str(item[1])+"\n")
+apfail=0
+for item in plist:
+    for ele in item.Subjects_Result():
+        if (ele[0]=="Appl" and ele{1}=="PASS"):
+            
     
-sorted_people = sorted(plist, key=lambda x: x.Total,reverse=True)
-print(sorted_people.__len__())
-
-
-for item in sorted_people:
-    print(item.Name)
+ 
     
 
  

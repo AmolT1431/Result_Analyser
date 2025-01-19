@@ -7,7 +7,6 @@ class Student:
         #self.No_Fail=pass_or_fail(self.Subject_list)
         self.Total=0
         
-        
     def Result(self):
         for sublist in self.Subject_list:
             if sublist[2] != 'PASS':
@@ -27,8 +26,16 @@ class Student:
             if sublist[2] != 'PASS':
                 failed_subjects.append(sublist[0][:4])
         return failed_subjects
-    
-        
+     
+    def Subjects_Result(self):
+        Subjects = []
+        for sublist in self.Subject_list:
+            if sublist[2] == 'PASS':
+                Subjects.append([sublist[0][:4],"PASS"])
+            else:
+                Subjects.append([sublist[0][:4],"FAIL"])
+
+        return Subjects   
 
  
 
